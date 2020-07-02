@@ -1,32 +1,116 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
+<style lang="scss">
+@import "./assets/_variables.scss";
+@import "bootstrap";
+</style>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+/* @media screen and (max-width: 768px) {
+  #upgradesHiresSells {
+    position: relative;
+    bottom: auto;
+  }
+  #footer {
+    bottom: auto;
+  }
+} */
+
+body {
+  overflow-y: hidden;
 }
 
-#nav {
-  padding: 30px;
+main {
+  flex-grow: 1;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.userResourceImage {
+  max-height: 3vh;
+}
+.img-md {
+  max-height: 8vh;
+}
+.img-sm {
+  max-height: 5vh;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+body {
+  background: url(./assets/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Gloria Hallelujah", cursive;
+  margin: 0 auto;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
+button {
+  box-shadow: 2px 2px black;
+}
+
+img {
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.buttonsBottom {
+  position: absolute;
+  bottom: 3%;
+}
+
+.mxw-100vw {
+  max-width: 100%;
+}
+
+/* div {
+  border: 1px solid red;
+} */
+
+.text-shadow-black {
+  text-shadow: 2px 2px 2px black;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-white {
+  -webkit-text-fill-color: white;
+}
+
+.bg-secondary-trans {
+  background-color: rgb(122, 130, 136, 0.7);
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 1px black;
+}
+
+.justify-content-space-around {
+  justify-content: space-evenly;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+button {
+  text-shadow: 2px 2px 2px black;
 }
 </style>
