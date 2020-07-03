@@ -34,7 +34,11 @@ main {
   max-height: 8vh;
 }
 .img-sm {
-  max-height: 5vh;
+  height: 5vh;
+}
+.img-flip-x {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 body {
@@ -55,7 +59,7 @@ footer {
 }
 
 button {
-  box-shadow: 2px 2px black;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 img {
@@ -65,10 +69,16 @@ img {
 .buttonsBottom {
   position: absolute;
   bottom: 3%;
+  left: 0;
+  right: 0;
 }
 
 .mxw-100vw {
   max-width: 100%;
+}
+
+.mn-vh-35 {
+  min-height: 35vh;
 }
 
 /* div {
@@ -81,6 +91,10 @@ img {
 
 .text-black {
   color: black;
+}
+
+.text-red {
+  -webkit-text-fill-color: red;
 }
 
 .text-white {

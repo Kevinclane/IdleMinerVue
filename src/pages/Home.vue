@@ -52,10 +52,7 @@
         <clickResources />
       </div>
 
-      <div
-        id="upgradesHiresSells"
-        class="row d-flex justify-content-around buttonsBottom w-100 align-items-end"
-      >
+      <div id="upgradesHiresSells" class="row d-flex justify-content-around buttonsBottom w-100">
         <upgrades />
         <market />
         <hires />

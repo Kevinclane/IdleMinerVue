@@ -15,14 +15,14 @@
             <div
               class="col-6 offset-3 p-3 text-dark d-flex justify-content-center align-items-center"
             >
-              <img src="../assets/Sell.png" class="userResourceImage mx-2" />
+              <img src="../assets/Sell.png" class="img-sm mx-2" />
               <h1>Market Place</h1>
-              <img src="../assets/Sell.png" class="userResourceImage mx-2" />
+              <img src="../assets/Sell.png" class="img-sm mx-2" />
             </div>
           </div>
           <div class="row">
             <div class="col-12 text-center text-dark">
-              <h5>You can sell your resources here for 5gp each</h5>
+              <h5>You can sell your resources here for {{rssCost}}gp each</h5>
             </div>
           </div>
           <div class="row justify-content-around">
@@ -229,6 +229,9 @@ export default {
   computed: {
     userInfo() {
       return this.$store.state.user;
+    },
+    rssCost() {
+      return this.$store.state.upgradeCounter.marketplace + 5;
     }
   },
   methods: {
@@ -258,6 +261,7 @@ export default {
   background-size: cover;
   max-height: 80vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .btn-size {
   height: 50%;
@@ -267,6 +271,9 @@ button {
 }
 .button-brown {
   background-image: url("../assets/dirt-brown.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .x-close {
   height: 3vh;

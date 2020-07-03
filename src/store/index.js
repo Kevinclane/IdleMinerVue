@@ -19,7 +19,6 @@ export default new Vuex.Store({
         axe: 0
       },
       idleIncome: {
-        gold: 0,
         food: 0,
         ore: 0,
         wood: 0
@@ -30,6 +29,9 @@ export default new Vuex.Store({
         ore: 0,
         wood: 0
       },
+      blacksmith: 1,
+      tavern: 1,
+      marketplace: 0
     },
 
     costs: {
