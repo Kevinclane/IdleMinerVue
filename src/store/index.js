@@ -23,11 +23,13 @@ export default new Vuex.Store({
         ore: 0,
         wood: 0
       },
-      idleMods: {
-        gold: 0,
-        food: 0,
-        ore: 0,
-        wood: 0
+      hires: {
+        hunter: 0,
+        miner: 0,
+        lumberjack: 0,
+        blacksmith: 0,
+        trader: 0,
+        builder: 0
       },
       blacksmith: 1,
       tavern: 1,
@@ -49,7 +51,13 @@ export default new Vuex.Store({
         gold: 200,
         ore: 50,
         wood: 100
-      }
+      },
+      hunter: 200,
+      miner: 200,
+      lumberjack: 200,
+      trader: 200,
+      builder: 200,
+      blacksmith: 200
     },
 
     nextUpgrade: {
@@ -79,6 +87,7 @@ export default new Vuex.Store({
     upgradeArrAxe: ['StoneAxe', 'BronzeAxe', 'IronAxe', 'SteelAxe', 'DiamondAxe']
   },
   mutations: {
+    //#region COLLECTION
     gatherFood(state, num) {
       state.user.food += num
     },
@@ -88,6 +97,8 @@ export default new Vuex.Store({
     gatherWood(state, num) {
       state.user.wood += num
     },
+    //#endregion
+    //#region UPGRADES
     buyArrow(state, data) {
       state.upgradeCounter.tool.arrow++
       let index = state.upgradeCounter.tool.arrow
@@ -130,6 +141,8 @@ export default new Vuex.Store({
       state.costs.axe.ore = 50 + 50 * index
       state.costs.axe.wood = 100 + 100 * index
     },
+    //#endregion
+    //#region SELLING
     sellFood(state, num) {
       state.user.gold += num * 5
       state.user.food -= num
@@ -141,6 +154,46 @@ export default new Vuex.Store({
     sellWood(state, num) {
       state.user.gold += num * 5
       state.user.wood -= num
+    },
+    //#endregion
+    //#region HIRES
+    hireHunter(state) {
+      state.user.gold -= state.costs.hunter
+      state.costs.hunter = state.costs.hunter * 2
+      state.upgradeCounter.idleIncome.food++
+      state.upgradeCounter.hires.hunter++
+    },
+    hireMiner(state) {
+      state.user.gold -= state.costs.miner
+      state.costs.miner = state.costs.miner * 2
+      state.upgradeCounter.idleIncome.ore++
+      state.upgradeCounter.hires.miner++
+    },
+    hireLumberjack(state) {
+      state.user.gold -= state.costs.lumberjack
+      state.costs.lumberjack = state.costs.lumberjack * 2
+      state.upgradeCounter.idleIncome.wood++
+      state.upgradeCounter.hires.lumberjack++
+    },
+    hireTrader(state) {
+      state.user.gold -= state.costs.trader
+      state.costs.trader = state.costs.trader * 2
+      state.upgradeCounter.hires.trader++
+    },
+    hireBuilder(state) {
+      state.user.gold -= state.costs.builder
+      state.costs.builder = state.costs.builder * 2
+      state.upgradeCounter.hires.builder++
+    },
+    hireBlacksmith(state) {
+      state.user.gold -= state.costs.blacksmith
+      state.costs.blacksmith = state.costs.blacksmith * 2
+      state.upgradeCounter.hires.blacksmith++
+    },
+    addIdleRss(state) {
+      state.user.food += state.upgradeCounter.idleIncome.food
+      state.user.ore += state.upgradeCounter.idleIncome.ore
+      state.user.wood += state.upgradeCounter.idleIncome.wood
     }
   },
   actions: {
@@ -205,6 +258,24 @@ export default new Vuex.Store({
       } else if (obj.resource == "wood") {
         commit("sellWood", obj.num)
       }
+    },
+    hire({ commit }, worker) {
+      if (worker == "hunter") {
+        commit("hireHunter")
+      } else if (worker == "miner") {
+        commit("hireMiner")
+      } else if (worker == "lumberjack") {
+        commit("hireLumberjack")
+      } else if (worker == "trader") {
+        commit("hireTrader")
+      } else if (worker == "builder") {
+        commit("hireBuilder")
+      } else if (worker == "blacksmith") {
+        commit("hireBlacksmith")
+      }
+    },
+    idleCollection({ commit }) {
+      commit("addIdleRss")
     }
   },
   modules: {

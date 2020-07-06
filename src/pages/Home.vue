@@ -77,12 +77,22 @@ import hires from "@/components/Hires.vue";
 
 export default {
   name: "Home",
+  mounted() {
+    window.setInterval(() => {
+      this.idleCollection();
+    }, 1000);
+  },
   computed: {
     user() {
       return this.$store.state.user;
     },
     idle() {
       return this.$store.state.upgradeCounter.idleIncome;
+    }
+  },
+  methods: {
+    idleCollection() {
+      this.$store.dispatch("idleCollection");
     }
   },
   components: {

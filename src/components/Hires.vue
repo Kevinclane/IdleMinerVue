@@ -24,42 +24,111 @@
             </div>
           </div>
           <div class="row d-flex justify-content-around text-white">
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35">
+            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
               <div>
                 <img src="../assets/Hunter.png" alt="error loading image" class="img-md" />
                 <p>Hunter</p>
                 <p>Increases food collection by +1 per second</p>
               </div>
-              <div>Gold:</div>
+              <div v-if="user.gold >= hunterCost">Gold: {{hunterCost}}</div>
+              <div v-else class="text-red">Gold: {{hunterCost}}</div>
               <div class="row buttonsBottom">
                 <div class="col">
-                  <button class="btn btn-primary text-shadow-black my-2">Hire Hunter</button>
+                  <button
+                    v-if="user.gold >= hunterCost"
+                    @click="hire('hunter')"
+                    class="btn btn-primary text-shadow-black my-2"
+                  >Hire Hunter</button>
                 </div>
               </div>
             </div>
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35">
+            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
               <div>
                 <img src="../assets/Miner.png" alt="error loading image" class="img-md" />
                 <p>Miner</p>
                 <p>Increases ore collection by +1 per second</p>
               </div>
-              <div>Gold:</div>
+              <div v-if="user.gold >= hunterCost">Gold: {{minerCost}}</div>
+              <div v-else class="text-red">Gold: {{minerCost}}</div>
               <div class="row buttonsBottom">
                 <div class="col">
-                  <button class="btn btn-primary text-shadow-black my-2">Hire Miner</button>
+                  <button
+                    v-if="user.gold >= hunterCost"
+                    @click="hire('miner')"
+                    class="btn btn-primary text-shadow-black my-2"
+                  >Hire Miner</button>
                 </div>
               </div>
             </div>
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35">
+            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
               <div>
                 <img src="../assets/Lumberjack.png" alt="error loading imgage" class="img-md" />
                 <p>Lumberjack</p>
                 <p>Increases wood collection by +1 per second</p>
               </div>
-              <div>Gold:</div>
+              <div v-if="user.gold >= hunterCost">Gold: {{lumberjackCost}}</div>
+              <div v-else class="text-red">Gold: {{lumberjackCost}}</div>
               <div class="row buttonsBottom">
                 <div class="col">
-                  <button class="btn btn-primary text-shadow-black my-2">Hire Lumberjack</button>
+                  <button
+                    v-if="user.gold >= hunterCost"
+                    @click="hire('lumberjack')"
+                    class="btn btn-primary text-shadow-black my-2"
+                  >Hire Lumberjack</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+              <div>
+                <img src="../assets/Trader.png" alt="error loading imgage" class="img-md" />
+                <p>Trader</p>
+                <p>Increases gold received for selling resources by +10%</p>
+              </div>
+              <div v-if="user.gold >= traderCost">Gold: {{traderCost}}</div>
+              <div v-else class="text-red">Gold: {{traderCost}}</div>
+              <div class="row buttonsBottom">
+                <div class="col">
+                  <button
+                    v-if="user.gold >= traderCost"
+                    @click="hire('trader')"
+                    class="btn btn-primary text-shadow-black my-2"
+                  >Hire Trader</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+              <div>
+                <img src="../assets/Builder.png" alt="error loading imgage" class="img-md" />
+                <p>Builder</p>
+                <p>Reduces building timers by 5%</p>
+              </div>
+              <div v-if="user.gold >= builderCost">Gold: {{builderCost}}</div>
+              <div v-else class="text-red">Gold: {{builderCost}}</div>
+              <div class="row buttonsBottom">
+                <div class="col">
+                  <button
+                    v-if="user.gold >= builderCost"
+                    @click="hire('builder')"
+                    class="btn btn-primary text-shadow-black my-2"
+                  >Hire Builder</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+              <div>
+                <img src="../assets/Blacksmith.png" alt="error loading imgage" class="img-md" />
+                <p>Blacksmith</p>
+                <p>Reduces item upgrade timers by 5%</p>
+              </div>
+              <div v-if="user.gold >= blacksmithCost">Gold: {{blacksmithCost}}</div>
+              <div v-else class="text-red">Gold: {{blacksmithCost}}</div>
+              <div class="row buttonsBottom">
+                <div class="col">
+                  <button
+                    v-if="user.gold >= blacksmithCost"
+                    @click="hire('blacksmith')"
+                    class="btn btn-primary text-shadow-black my-2"
+                  >Hire Blacksmith</button>
                 </div>
               </div>
             </div>
@@ -77,6 +146,34 @@ export default {
     return {
       modalShow: false
     };
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    hunterCost() {
+      return this.$store.state.costs.hunter;
+    },
+    minerCost() {
+      return this.$store.state.costs.miner;
+    },
+    lumberjackCost() {
+      return this.$store.state.costs.lumberjack;
+    },
+    traderCost() {
+      return this.$store.state.costs.trader;
+    },
+    builderCost() {
+      return this.$store.state.costs.builder;
+    },
+    blacksmithCost() {
+      return this.$store.state.costs.blacksmith;
+    }
+  },
+  methods: {
+    hire(worker) {
+      this.$store.dispatch("hire", worker);
+    }
   }
 };
 </script>

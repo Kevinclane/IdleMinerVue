@@ -127,4 +127,22 @@ img {
 button {
   text-shadow: 2px 2px 2px black;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #272525;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #765737;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #906a44;
+}
 </style>
