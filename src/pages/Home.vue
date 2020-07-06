@@ -77,10 +77,14 @@ import hires from "@/components/Hires.vue";
 
 export default {
   name: "Home",
+  data() {
+    return {};
+  },
   mounted() {
     window.setInterval(() => {
       this.idleCollection();
     }, 1000);
+    this.playMusic();
   },
   computed: {
     user() {
@@ -88,11 +92,26 @@ export default {
     },
     idle() {
       return this.$store.state.upgradeCounter.idleIncome;
+    },
+    tracks() {
+      return this.$store.state.tracks;
     }
   },
   methods: {
     idleCollection() {
       this.$store.dispatch("idleCollection");
+    },
+    playMusic() {
+      let i = 0;
+      while (i < this.tracks.length) {
+        debugger;
+        let foundSong = this.tracks[i];
+        let currentSong = new Audio(foundSong);
+
+        // currentSong.play();
+        setTimeout(currentSong.play(), currentSong.duration());
+        i++;
+      }
     }
   },
   components: {

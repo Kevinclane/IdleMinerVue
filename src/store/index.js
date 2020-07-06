@@ -84,7 +84,9 @@ export default new Vuex.Store({
     axeNames: ["Stone Axes", "Bronze Axes", "Iron Axes", "Steel Axes", "Diamond Axes"],
     upgradeArrArrow: ['StoneArrow', 'BronzeArrow', 'IronArrow', 'SteelArrow', 'DiamondArrow'],
     upgradeArrPick: ['StonePick', 'BronzePick', 'IronPick', 'SteelPick', 'DiamondPick'],
-    upgradeArrAxe: ['StoneAxe', 'BronzeAxe', 'IronAxe', 'SteelAxe', 'DiamondAxe']
+    upgradeArrAxe: ['StoneAxe', 'BronzeAxe', 'IronAxe', 'SteelAxe', 'DiamondAxe'],
+
+    tracks: ["@/assets/AdventureTrack1.wav", "../assets/AdventureTrack2.wav"]
   },
   mutations: {
     //#region COLLECTION
