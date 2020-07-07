@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="row d-flex justify-content-around text-white">
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+            <div class="col-8 col-md-3 m-3 button-brown p-2 round-cstm mn-vh-50 mx-4">
               <div>
                 <img src="../assets/Hunter.png" alt="error loading image" class="img-md" />
                 <p>Hunter</p>
@@ -42,7 +42,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+            <div class="col-8 col-md-3 m-3 button-brown p-2 round-cstm mn-vh-50 mx-4">
               <div>
                 <img src="../assets/Miner.png" alt="error loading image" class="img-md" />
                 <p>Miner</p>
@@ -60,7 +60,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+            <div class="col-8 col-md-3 m-3 button-brown p-2 round-cstm mn-vh-50 mx-4">
               <div>
                 <img src="../assets/Lumberjack.png" alt="error loading imgage" class="img-md" />
                 <p>Lumberjack</p>
@@ -78,7 +78,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+            <div class="col-8 col-md-3 m-3 button-brown p-2 round-cstm mn-vh-50 mx-4">
               <div>
                 <img src="../assets/Trader.png" alt="error loading imgage" class="img-md" />
                 <p>Trader</p>
@@ -96,7 +96,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+            <div class="col-8 col-md-3 m-3 button-brown p-2 round-cstm mn-vh-50 mx-4">
               <div>
                 <img src="../assets/Builder.png" alt="error loading imgage" class="img-md" />
                 <p>Builder</p>
@@ -114,7 +114,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 col-md-2 m-3 button-brown p-2 round-cstm mn-vh-35 mx-4">
+            <div class="col-8 col-md-3 m-3 button-brown p-2 round-cstm mn-vh-50 mx-4">
               <div>
                 <img src="../assets/Blacksmith.png" alt="error loading imgage" class="img-md" />
                 <p>Blacksmith</p>

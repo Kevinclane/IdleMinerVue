@@ -34,14 +34,18 @@
             {{idle.wood}}/s
           </span>
         </div>
-        <div class="col-12 col-md-2 offset-md-1 d-flex justify-content-around">
+        <div class="col-12 col-md-3 d-flex justify-content-around">
           <span>
-            <img src="../assets/Gold.png" alt="error loading image" class="userResourceImage" />
-            Upkeep
+            <span>
+              <img src="../assets/Gold.png" alt="error loading image" class="userResourceImage" />
+            </span>
+            <span>Upkeep</span>
           </span>
           <span>
-            <img src="../assets/Food.png" alt="error loading image" class="userResourceImage" />
-            Upkeep
+            <span>
+              <img src="../assets/Food.png" alt="error loading image" class="userResourceImage" />
+            </span>
+            <span>Upkeep</span>
           </span>
         </div>
       </div>
@@ -52,20 +56,20 @@
         <clickResources />
       </div>
 
-      <div id="upgradesHiresSells" class="row d-flex justify-content-around buttonsBottom w-100">
+      <div id="upgradesHiresSells" class="row d-flex justify-content-around buttonsBottom">
         <upgrades />
         <market />
         <hires />
       </div>
     </main>
 
-    <footer id="footer" class="container-fluid text-center bg-primary">
+    <!-- <footer id="footer" class="container-fluid text-center bg-primary">
       <div class="row">
         <div class="col">
           <small class="text-white text-shadow-black">Created by Kevin Lane</small>
         </div>
       </div>
-    </footer>
+    </footer>-->
   </div>
 </template>
 
@@ -84,7 +88,7 @@ export default {
     window.setInterval(() => {
       this.idleCollection();
     }, 1000);
-    this.playMusic();
+    // this.playMusic();
   },
   computed: {
     user() {
@@ -100,19 +104,19 @@ export default {
   methods: {
     idleCollection() {
       this.$store.dispatch("idleCollection");
-    },
-    playMusic() {
-      let i = 0;
-      while (i < this.tracks.length) {
-        debugger;
-        let foundSong = this.tracks[i];
-        let currentSong = new Audio(foundSong);
-
-        // currentSong.play();
-        setTimeout(currentSong.play(), currentSong.duration());
-        i++;
-      }
     }
+    // playMusic() {
+    //   let i = 0;
+    //   while (i < this.tracks.length) {
+    //     debugger;
+    //     let foundSong = this.tracks[i];
+    //     let currentSong = new Audio(foundSong);
+
+    //     // currentSong.play();
+    //     setTimeout(currentSong.play(), currentSong.duration());
+    //     i++;
+    //   }
+    // }
   },
   components: {
     clickResources,
@@ -124,4 +128,7 @@ export default {
 </script>
 
 <style scoped>
+.w-inh {
+  width: inherit;
+}
 </style>

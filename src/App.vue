@@ -77,8 +77,8 @@ img {
   max-width: 100%;
 }
 
-.mn-vh-35 {
-  min-height: 35vh;
+.mn-vh-50 {
+  min-height: 50vh;
 }
 
 /* div {
